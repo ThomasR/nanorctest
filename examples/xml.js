@@ -35,7 +35,8 @@ icolor black,green "\</?head[ >]"
 icolor brightwhite,green "\</?body[ >]"
 
 # Stylesheets
-icolor magenta start="\<style" end="\</style>" start="style="" end="""
+icolor magenta start="\<style" end="\</style>"
+icolor start="style="" end="""
 
 # CDATA
 color brightmagenta start="\<!\\[CDATA\\[" end="\\]\\]>"
@@ -68,6 +69,11 @@ icolor brightyellow start="\<script" end="\</script>"
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
+        <style>
+            body {
+                background: magenta;
+            }
+        </style>
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>

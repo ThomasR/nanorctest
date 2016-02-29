@@ -6,7 +6,7 @@ examples.push({
 icolor brightgreen "\\.?\\<[0-9]+" "\\<[0-9]+\\.([0-9]+)?"
 icolor brightgreen "\\<0x[0-9a-f]"
 
-# koywords
+# keywords
 color brightyellow "\\b(if|else|for|in|while|do|continue|break|with|try|catch|finally|switch|case|new|var|return|delete|true|false|void|throw|typeof|const|default|null)\\b"
 color brightyellow "\\b(Anchor|Applet|Area|Array|Boolean|Button|Checkbox|Date|document|window|Image|FileUpload|Form|Frame|Function|Hidden|Link|MimeType|Math|Max|Min|Layer|navigator|Object|Password|Plugin|Radio|RegExp|Reset|Screen|Select|String|Text|Textarea|this|Window)\\b"
 color brightyellow "\\b(abs|acos|asin|atan|atan2|ceil|cos|ctg|E|exp|floor|LN2|LN10|log|LOG2E|LOG10E|PI|pow|round|sin|sqrt|SQRT1_2|SQRT2|tan)\\b"

@@ -38,7 +38,7 @@ color brightyellow "^[[:space:]]*\\[.*\\][[:space:]]*([[:space:]]#|[[:space:]];|
 # Comments
 color brightblack "(^|[[:space:]])(#|;).*$"
 
-# Leerzeichen am Zeilenende
+# Trailing whitespace
 color ,blue "[[:space:]]+$"
     `,
     code: `[user]

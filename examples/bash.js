@@ -43,7 +43,7 @@ icolor brightwhite,red "(^|\\;)[[:space:]]*(export[[:space:]]+)?\\$[0-9A-Z_!@#$*
 
 color brightcyan "(^|\\;)[[:space:]]*export[[:space:]]+"
 
-# eslaped
+# escaped
 color brightgreen "\\." "\\0[0-7]{1,3}" "\\x[a-fA-F0-9]{1,2}"
 
 # 'Strings'

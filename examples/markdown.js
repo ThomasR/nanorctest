@@ -21,7 +21,7 @@ color brightyellow "^#{1,6} .*"
 color brightyellow "^(---+|===+|___+|\\*\\*\\*+)\\s*$"
 
 # HTML elements
-color brightgreen start="&lt;/?(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|bgsound|big|blink|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|command|content|data|datalist|dd|del|details|dfn|dialog|dir|div|dl|dt|element|em|embed|fieldset|figcaption|figure|font|footer|form|frame|frameset|head|header|hgroup|hr|html|i|iframe|image|img|input|ins|isindex|kbd|keygen|label|legend|li|link|listing|main|map|mark|marquee|menu|menuitem|meta|meter|multicol|nav|nobr|noembed|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|plaintext|pre|progress|q|rp|rt|rtc|ruby|s|samp|script|section|select|shadow|small|source|spacer|span|strike|strong|style|sub|summary|sup|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp)[[:>:]]" end=">"
+color brightgreen start="</?(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|bgsound|big|blink|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|command|content|data|datalist|dd|del|details|dfn|dialog|dir|div|dl|dt|element|em|embed|fieldset|figcaption|figure|font|footer|form|frame|frameset|head|header|hgroup|hr|html|i|iframe|image|img|input|ins|isindex|kbd|keygen|label|legend|li|link|listing|main|map|mark|marquee|menu|menuitem|meta|meter|multicol|nav|nobr|noembed|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|plaintext|pre|progress|q|rp|rt|rtc|ruby|s|samp|script|section|select|shadow|small|source|spacer|span|strike|strong|style|sub|summary|sup|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp)[[:>:]]" end=">"
 
 # links
 color brightblue "\\[[^]]+\\]"
@@ -87,7 +87,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 Or leave it empty and use the [link text itself]
 
 URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or &lt;http://www.example.com> and sometimes
+http://www.example.com or <http://www.example.com> and sometimes
 example.com (but not on Github, for example).
 
 Some text to show that the reference links can follow later.
@@ -125,12 +125,12 @@ foo
 
 \`\`\`
 No language indicated, so no syntax highlighting.
-But let's throw in a &lt;b>tag&lt;/b>.
+But let's throw in a <b>tag</b>.
 \`\`\`
 
 
 No language indicated, so no syntax highlighting in Markdown Here (varies on Github).
-But let's throw in a &lt;b>tag&lt;/b>.
+But let's throw in a <b>tag</b>.
 
 
 Colons can be used to align columns.
@@ -157,13 +157,13 @@ Quote break.
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 
 
-&lt;dl>
-  &lt;dt>Definition list&lt;/dt>
-  &lt;dd>Is something people use sometimes.&lt;/dd>
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
 
-  &lt;dt>Markdown in HTML&lt;/dt>
-  &lt;dd>Does *not* work **very** well. Use HTML &lt;em>tags&lt;/em>.&lt;/dd>
-&lt;/dl>
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
 
 
 Three or more...
@@ -189,9 +189,9 @@ This line is also a separate paragraph, but...
 This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
 
 
-&lt;a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank">&lt;img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />&lt;/a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
