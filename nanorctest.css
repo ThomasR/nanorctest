@@ -9,7 +9,7 @@ html, body {
 * {
     box-sizing: border-box;
 }
-h1, a, label {
+h1, #info, label {
     font-size: 16px;
     margin: 0 4vw 0 0;
     float: right;
@@ -47,6 +47,13 @@ textarea,
 #result {
     background: black;
     color: #afb5ba;
+}
+#result a {
+    color: inherit !important;
+    text-decoration: none;
+}
+#result a:hover {
+    text-decoration: underline;
 }
 #result .black {
     color: #000000;

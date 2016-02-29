@@ -275,7 +275,7 @@ let sync = (() => {
         if (code !== newCode || nanorc !== newNanorc) {
             code = newCode;
             nanorc = newNanorc;
-            resultEl.innerHTML = highlight(code, nanorc);
+            resultEl.innerHTML = highlight(code, nanorc).replace(/https?:\/\/([\][!#$&-;=?-_a-z~]|%[0-9a-fA-F]{2})+/g, url => `<a href="${url}">${url}</a>`);
         }
     };
 })();
