@@ -40,17 +40,20 @@ let convertRegExp = str => {
 * TODO:doc
 */
 let getGlobalMatcher = (line, insensitive) => {
-    line = line.replace('start="', '').replace(/"$/, '');
-    let res = line.split(/"\s+end="/);
+    let res = line.replace('start="', '').replace(/"$/, '').split(/"\s+end="/);
     let flag = insensitive ? 'gmi' : 'gm';
     return {
         start: new RegExp(convertRegExp(res[0]), flag),
-        end: new RegExp(convertRegExp(res[1]), flag)
+        end: new RegExp(convertRegExp(res[1]), flag),
+        source: res
     };
 };
 
 let getLineMatcher = (re, insensitive) => {
-    return new RegExp(convertRegExp(re), insensitive ? 'gi' : 'g');
+    return {
+        re: new RegExp(convertRegExp(re), insensitive ? 'gi' : 'g'),
+        source: re
+    };
 };
 
 let getHighlighters = nanorc => {
@@ -99,17 +102,23 @@ let getHighlighters = nanorc => {
 let analyzeGlobal = (code, highlighter, metas) => {
     let starts = [];
     let start;
+    let lastIndex;
     while (start = highlighter.matcher.start.exec(code)) {
         starts.push({
             from: start.index,
             to: highlighter.matcher.start.lastIndex - 1
         });
+        if (start.index === lastIndex) {
+            throw new Error(highlighter.matcher.source[0] + ' matched the empty string');
+        }
+        lastIndex = start.index;
     }
     if (!starts.length) {
         return;
     }
     let ends = [];
     let end;
+    lastIndex = -1;
     while (end = highlighter.matcher.end.exec(code)) {
         if (end.index > starts[0].to) {
             ends.push({
@@ -117,6 +126,10 @@ let analyzeGlobal = (code, highlighter, metas) => {
                 to: highlighter.matcher.end.lastIndex - 1
             });
         }
+        if (end.index === lastIndex) {
+            throw new Error(highlighter.matcher.source[0] + ' matched the empty string');
+        }
+        lastIndex = end.index;
     }
     if (!ends.length) {
         return;
@@ -186,14 +199,19 @@ let addMetaData = (code, highlighter, metas) => {
     } else {
         code.split('\n').forEach((line, i) => {
             let match;
-            while (match = highlighter.matcher.exec(line)) {
+            let lastIndex;
+            while (match = highlighter.matcher.re.exec(line)) {
                 metas[i] = metas[i] || [];
                 metas[i].push({
                     start: match.index,
-                    end: highlighter.matcher.lastIndex,
+                    end: highlighter.matcher.re.lastIndex,
                     fg: highlighter.fg,
                     bg: highlighter.bg
                 });
+                if (match.index === lastIndex) {
+                    throw new Error(highlighter.matcher.source + ' matched the empty string');
+                }
+                lastIndex = match.index;
             }
         });
     }
