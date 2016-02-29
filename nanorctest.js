@@ -22,7 +22,7 @@ let convertRegExp = str => {
         .replace(/\[:alpha:]/g, 'a-zA-Z').replace(/\[:alnum:]/g, 'a-zA-Z0-9')
         .replace(/\[:lower:]/g, 'a-z').replace(/\[:upper:]/g, 'A-Z')
         .replace(/\[:ascii:]/g, '\\x00-\\x7F').replace(/\[:graph:]/g, '\\x21-\\x7E')
-        .replace(/\[:blank:]/g, '\\h').replace(/\[:digits:]/g, '\\d')
+        .replace(/\[:blank:]/g, '\\h').replace(/\[:digit:]/g, '\\d')
         .replace(/\[:cntrl:]/g, '\\x00-\\x1F\\x7F').replace(/\[:print:]/g, '\\x20-\\x7E')
         .replace(/\[:xdigit:]/g, 'a-fA-F0-9').replace(/\[:punct:]/g, '\'!"#$%&()*+,\\-./:;<=>?@[\\]^_`{|}~\\\\');
     // Allow unescaped ] in character class like []…] or [^]…].
@@ -30,7 +30,7 @@ let convertRegExp = str => {
     let parts = replaeced.split(/(\[\^?\].*?\])/g);
     return parts.reduce((result, part, i) => {
         if (i % 2) {
-            part = part.replace(/^(\[\^)]/, '$1\\]')
+            part = part.replace(/^(\[\^?)]/, '$1\\]')
         }
         return result + part;
     });
