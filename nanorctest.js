@@ -57,9 +57,17 @@ let getLineMatcher = (re, insensitive) => {
 };
 
 let getHighlighters = nanorc => {
-    let lines = nanorc.split('\n').map(l => l.trim()).filter(line => /^i?color\b/.test(line));
+    let lines = {color: [], other: []};
+    nanorc.split('\n').map(l => l.trim()).forEach(line => {
+        if (/^i?color\b/.test(line)) {
+            lines.color.push(line);
+        } else if (line.length && !/^#/.test(line)) {
+            lines.other.push(line)
+        }
+    });
+    lines.other.forEach(l => console.warn('ignoring line: ', l));
     let result = [];
-    lines.forEach(line => {
+    lines.color.forEach(line => {
         let insensitive = line[0] === 'i';
         line = line.replace(/i?color\s*/, '');
         if (!colorRE.test(line)) {
