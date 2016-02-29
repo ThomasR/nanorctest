@@ -1,3 +1,5 @@
+'use strict';
+
 let select = document.querySelector('#examples');
 examples.forEach(example => {
     let option = document.createElement('option');
