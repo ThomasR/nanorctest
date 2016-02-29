@@ -1,0 +1,138 @@
+html {
+    background: white;
+    font: 16px Arial, sans-serif;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    width: 45vw;
+    float: left;
+    height: 45vh;
+    box-shadow: inset 0 0 .5em rgba(0, 0, 0, .2);
+}
+#result {
+    width: 94vw;
+    height: 48vh;
+    clear: both;
+}
+textarea,
+#result {
+    margin: 2vh 2vw;
+    border: 1px solid;
+    white-space: pre;
+    overflow: auto;
+    padding: .5em;
+    font-family: "Source Code Pro", Monaco, monospace;
+    font-size: 80%;
+}
+
+#result {
+    background: black;
+    color: #afb5ba;
+}
+#result .black {
+    color: #000000;
+}
+#result .brightblack {
+    color: #585f66;
+}
+#result .white,
+#result .default {
+    color: #afb5ba;
+}
+#result .brightwhite {
+    color: #ffffff;
+}
+#result .red {
+    color: #d6000b;
+}
+#result .brightred {
+    color: #ff5562;
+}
+#result .yellow {
+    color: #bf9e00;
+}
+#result .brightyellow {
+    color: #fff150;
+}
+#result .green {
+    color: #399e00;
+}
+#result .brightgreen {
+    color: #8aff15;
+}
+#result .cyan {
+    color: #00a698;
+}
+#result .brightcyan {
+    color: #4affff;
+}
+#result .blue {
+    color: #166dff;
+}
+#result .brightblue {
+    color: #55aeff;
+}
+#result .magenta {
+    color: #c71da0;
+}
+#result .brightmagenta {
+    color: #ff4ac8;
+}
+
+#result .bg-black,
+#result .bg-default {
+    background-color: #000000;
+}
+#result .brightbgblack {
+    background-color: #585f66;
+}
+#result .bg-white {
+    background-color: #afb5ba;
+}
+#result .brightbgwhite {
+    background-color: #ffffff;
+}
+#result .bg-red {
+    background-color: #d6000b;
+}
+#result .brightbgred {
+    background-color: #ff5562;
+}
+#result .bg-yellow {
+    background-color: #bf9e00;
+}
+#result .brightbgyellow {
+    background-color: #fff150;
+}
+#result .bg-green {
+    background-color: #399e00;
+}
+#result .brightbggreen {
+    background-color: #8aff15;
+}
+#result .bg-cyan {
+    background-color: #00a698;
+}
+#result .brightbgcyan {
+    background-color: #4affff;
+}
+#result .bg-blue {
+    background-color: #166dff;
+}
+#result .brightbgblue {
+    background-color: #55aeff;
+}
+#result .bg-magenta {
+    background-color: #c71da0;
+}
+#result .brightbgmagenta {
+    background-color: #ff4ac8;
+}
