@@ -1,5 +1,5 @@
 examples.push({
-    title: 'apache httpd/2',
+    title: 'Apache httpd/2',
     nanorc: `syntax "apache" "(apache|httpd)2?\\.conf" "\\.htaccess$"
 
 # second column

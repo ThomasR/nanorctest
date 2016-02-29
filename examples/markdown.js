@@ -1,5 +1,5 @@
 examples.push({
-    title: 'markdown',
+    title: 'Markdown',
     nanorc: `syntax "md" "\\.(md|mkd|mkdn|markdown)$"
 
 # lists
@@ -37,8 +37,12 @@ color magenta "!\\[[^][]*\\](\\([^)]+\\)|\\[[^]]+\\])"
 color green "^ {4}[^-*+].*" "\`[^\`]+\`"
 
 # code blocks
+# unfortunately, nano is buggy and can’t handle the case
+# where start==end with more than one matching block.
+# so start="\`\`\`" end="\`\`\`" doesn’t work,
+# and we use some stopgap here
 color ,green "^\`\`\`$"
-color green start="^\`\`\`[^\`]" end="^\`\`\`$"*`,
+color green start="^\`\`\`[^\`]" end="^\`\`\`$"`,
     code: `# H
 ## H2
 ### H3

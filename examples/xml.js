@@ -1,60 +1,60 @@
 examples.push({
-    title: 'xml/html',
+    title: 'XML/HTML',
     nanorc: `syntax "xml" "\\.(dtd|ent|html?|xml|xul|svg|plist|xib)$"
 
 # Code
-icolor brightgreen start="\<\code" end="\<\/code>"
+icolor brightgreen start="<code" end="</code>"
 
 # Tags
-color brightblue start="\<" end=">"
+color brightblue start="<" end=">"
 
 # XML Declaration
-color brightcyan start="\<\\?xml" end="\\?\>"
+color brightcyan start="<\\?xml" end="\\?\>"
 
 # Attributes
 color red "[[:space:]][[:graph:]][^= ]*="
 
-# \</> =
-color cyan "[\<>=]" "\</"
+# </> =
+color cyan "[<>=]" "</"
 
 # pre
-icolor brightyellow,blue "\<pre[ >]" "\</pre>"
+icolor brightyellow,blue "<pre[ >]" "</pre>"
 
 # values
 color green ""[^"]*""
 
 # Doctype
-color brightcyan start="\<!DOCTYPE" end=">"
-color yellow "\<!DOCTYPE[^"]+("|$)"
+color brightcyan start="<!DOCTYPE" end=">"
+color yellow "<!DOCTYPE[^"]+("|$)"
 
 # Quotes
 color cyan "["]"
 
-# \<head> and \<body>
-icolor black,green "\</?head[ >]"
-icolor brightwhite,green "\</?body[ >]"
+# <head> and <body>
+icolor black,green "</?head[ >]"
+icolor brightwhite,green "</?body[ >]"
 
 # Stylesheets
-icolor magenta start="\<style" end="\</style>"
+icolor magenta start="<style" end="</style>"
 icolor start="style="" end="""
 
 # CDATA
-color brightmagenta start="\<!\\[CDATA\\[" end="\\]\\]>"
+color brightmagenta start="<!\\[CDATA\\[" end="\\]\\]>"
 
 # colors
-icolor brightred "#([0-9a-f]{3}){1,2}" "rgb\\([^,]+,[^,]+,[^)]+\\)" "\\\<(AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenrod|DarkGray|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGray|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGray|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|Goldenrod|Gray|Green|GreenYellow|Honeydew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenrodYellow|LightGreen|LightGrey|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGray|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquamarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenrod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|Seashell|Sienna|Silver|SkyBlue|SlateBlue|SlateGray|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)"
+icolor brightred "#([0-9a-f]{3}){1,2}" "rgb\\([^,]+,[^,]+,[^)]+\\)" "\\<(AliceBlue|AntiqueWhite|Aqua|Aquamarine|Azure|Beige|Bisque|Black|BlanchedAlmond|Blue|BlueViolet|Brown|BurlyWood|CadetBlue|Chartreuse|Chocolate|Coral|CornflowerBlue|Cornsilk|Crimson|Cyan|DarkBlue|DarkCyan|DarkGoldenrod|DarkGray|DarkGreen|DarkKhaki|DarkMagenta|DarkOliveGreen|DarkOrange|DarkOrchid|DarkRed|DarkSalmon|DarkSeaGreen|DarkSlateBlue|DarkSlateGray|DarkTurquoise|DarkViolet|DeepPink|DeepSkyBlue|DimGray|DodgerBlue|FireBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|Goldenrod|Gray|Green|GreenYellow|Honeydew|HotPink|IndianRed|Indigo|Ivory|Khaki|Lavender|LavenderBlush|LawnGreen|LemonChiffon|LightBlue|LightCoral|LightCyan|LightGoldenrodYellow|LightGreen|LightGrey|LightPink|LightSalmon|LightSeaGreen|LightSkyBlue|LightSlateGray|LightSteelBlue|LightYellow|Lime|LimeGreen|Linen|Magenta|Maroon|MediumAquamarine|MediumBlue|MediumOrchid|MediumPurple|MediumSeaGreen|MediumSlateBlue|MediumSpringGreen|MediumTurquoise|MediumVioletRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGoldenrod|PaleGreen|PaleTurquoise|PaleVioletRed|PapayaWhip|PeachPuff|Peru|Pink|Plum|PowderBlue|Purple|Red|RosyBrown|RoyalBlue|SaddleBrown|Salmon|SandyBrown|SeaGreen|Seashell|Sienna|Silver|SkyBlue|SlateBlue|SlateGray|Snow|SpringGreen|SteelBlue|Tan|Teal|Thistle|Tomato|Turquoise|Violet|Wheat|White|WhiteSmoke|Yellow|YellowGreen)"
 
 # Masked special characters
 icolor brightyellow "&([a-z0-9]+|#([0-9]+|x[0-9a-f]+));"
 
 # comments
-color brightblack start="\<!--" end="-->"
+color brightblack start="<!--" end="-->"
 
 # Conditional Comments
-color brightgreen start="\<!--\[if[^]]+\]" end="\<!\[endif\]-->"
+color brightgreen start="<!--\\[if[^]]+\\]" end="<!\\[endif\\]-->"
 
 # Scripts
-icolor brightyellow start="\<script" end="\</script>"
+icolor brightyellow start="<script" end="</script>"
 `,
     code: `<!doctype html>
 <html class="no-js" lang="">

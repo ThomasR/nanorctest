@@ -1,5 +1,5 @@
 examples.push({
-    title: 'js',
+    title: 'JS',
     nanorc: `syntax "js" "\\.js$"
 
 # numbers

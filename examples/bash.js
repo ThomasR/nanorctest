@@ -1,5 +1,5 @@
 examples.push({
-    title: 'bash',
+    title: 'Bash',
     nanorc: `syntax "sh" "\\.sh$" "(/|^|\\.)bash(rc|_[^/]*)$" "(^|\\.|/)(bash_)?profile$"
 
 # keywords
