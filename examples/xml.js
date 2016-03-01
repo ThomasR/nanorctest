@@ -1,6 +1,6 @@
 examples.push({
     title: 'XML/HTML',
-    nanorc: `syntax "xml" "\\.(dtd|ent|html?|xml|xul|svg|plist|xib)$"
+    nanorc: `syntax "xml" "\\.(dtd|ent|html?|xml|xul|svg|plist|xib)\$"
 
 # Code
 icolor brightgreen start="<code" end="</code>"
@@ -25,7 +25,7 @@ color green ""[^"]*""
 
 # Doctype
 color brightcyan start="<!DOCTYPE" end=">"
-color yellow "<!DOCTYPE[^"]+("|$)"
+color yellow "<!DOCTYPE[^"]+("|\$)"
 
 # Quotes
 color cyan "["]"

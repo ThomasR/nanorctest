@@ -1,6 +1,6 @@
 examples.push({
     title: 'ini',
-    nanorc: `syntax "cfg" "\\.(colors|conf|cfg|desktop|directory|ini|pref|properties)$" "(rc|config)$" "(^|/)hosts(\\.(allow|deny))?$"
+    nanorc: `syntax "cfg" "\\.(colors|conf|cfg|desktop|directory|ini|pref|properties)\$" "(rc|config)\$" "(^|/)hosts(\\.(allow|deny))?\$"
 
 # Variables
 color cyan "^[^="]+[[:space:]]*="
@@ -9,7 +9,7 @@ color cyan "^[^="]+[[:space:]]*="
 color brightcyan "\\[[^]]+]"
 
 # Operators
-color brightred "(\\{|\\}|\\(|\\)|\\;|\\]|\\[|\`|\\\\|\\$|<|>|!|=|&|\\||,)"
+color brightred "(\\{|\\}|\\(|\\)|\\;|\\]|\\[|\`|\\\\|\\\$|<|>|!|=|&|\\||,)"
 
 # numbers
 color brightblue "-?\\<[0-9]+\\.?[0-9]*"
@@ -17,13 +17,13 @@ color brightblue "-?\\<[0-9]+\\.?[0-9]*"
 # IPs
 color magenta "\\<[[:digit:]]{1,3}(\\.[[:digit:]]{1,3}){3}"
 # IPv6
-color magenta "::(([0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])[0-9a-fA-F]{1,4}::(([0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){2}:(([0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){3}:(([0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){4}:(([0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){5}:(([0-9a-fA-F]{1,4}:)?[0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
-color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){6}:([0-9a-fA-F]{1,4})?($|[^[:alnum:]])"
+color magenta "::(([0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])[0-9a-fA-F]{1,4}::(([0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){2}:(([0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){3}:(([0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){4}:(([0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){5}:(([0-9a-fA-F]{1,4}:)?[0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
+color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){6}:([0-9a-fA-F]{1,4})?(\$|[^[:alnum:]])"
 color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){7}(:|[0-9a-fA-F]{1,4}\\b)"
 
 # "Strings" and 'Strings'
@@ -34,12 +34,12 @@ color green ""(\\\\.|[^\\"])*""
 # color brightgreen "\\\\."
 
 # Config sections
-color brightyellow "^[[:space:]]*\\[.*\\][[:space:]]*([[:space:]]#|[[:space:]];|$)" "\\<(End)?(Sub)?Section"
+color brightyellow "^[[:space:]]*\\[.*\\][[:space:]]*([[:space:]]#|[[:space:]];|\$)" "\\<(End)?(Sub)?Section"
 # Comments
-color brightblack "(^|[[:space:]])(#|;).*$"
+color brightblack "(^|[[:space:]])(#|;).*\$"
 
 # Trailing whitespace
-color ,blue "[[:space:]]+$"
+color ,blue "[[:space:]]+\$"
     `,
     code: `[user]
     name = ThomasR
@@ -65,8 +65,8 @@ color ,blue "[[:space:]]+$"
     l = log --pretty='format:%C(3)[%h] %Cgreen%an%Creset%n\\t %cd %s %Cred%d%Creset' --graph --author-date-order
     la = !git l --all
     dif = diff --word-diff=color
-    delbranch = "!f() { if [ \\"$1\\" = \\"-h\\" ]; then echo \\"Usage: git delbranch [ORIGIN] BRANCHNAME\\nExample: git delbranch foo; git delbranch origin foo\\"; return; fi; if [ -z \\"$2\\" ]; then git branch -d \\"$1\\"; else git push \\"$1\\" :\\"$2\\"; fi; }; f"
-    deltag = "!f() { if [ \\"$1\\" = \\"-h\\" ]; then echo \\"Usage: git deltag [ORIGIN] TAGNAME\\nExample: git deltag foo; git deltag origin foo\\"; return; fi; if [ -z \\"$2\\" ]; then git tag -d \\"$1\\"; else git push \\"$1\\" :refs/tags/\\"$2\\"; fi; }; f"
+    delbranch = "!f() { if [ \\"\$1\\" = \\"-h\\" ]; then echo \\"Usage: git delbranch [ORIGIN] BRANCHNAME\\nExample: git delbranch foo; git delbranch origin foo\\"; return; fi; if [ -z \\"\$2\\" ]; then git branch -d \\"\$1\\"; else git push \\"\$1\\" :\\"\$2\\"; fi; }; f"
+    deltag = "!f() { if [ \\"\$1\\" = \\"-h\\" ]; then echo \\"Usage: git deltag [ORIGIN] TAGNAME\\nExample: git deltag foo; git deltag origin foo\\"; return; fi; if [ -z \\"\$2\\" ]; then git tag -d \\"\$1\\"; else git push \\"\$1\\" :refs/tags/\\"\$2\\"; fi; }; f"
 # remove All deleted
     rma = !git ls-files --deleted -z | xargs -0 git rm
 # remove all Untracked
@@ -102,7 +102,7 @@ color ,blue "[[:space:]]+$"
      error = red
 [diff]
     noprefix = true
-    wordregex = "[[:alnum:]_$]+|[:;,.?|$*/+-]+|[][{}()</>]+|[\\"']+|[^][{}()</>[:alnum:]_$[:space:]\\"':;,.?|$*/+-]+"
+    wordregex = "[[:alnum:]_\$]+|[:;,.?|\$*/+-]+|[][{}()</>]+|[\\"']+|[^][{}()</>[:alnum:]_\$[:space:]\\"':;,.?|\$*/+-]+"
     renames = true
 [log]
     date = local

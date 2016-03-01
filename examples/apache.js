@@ -1,11 +1,11 @@
 examples.push({
-    title: 'Apache httpd/2',
-    nanorc: `syntax "apache" "(apache|httpd)2?\\.conf" "\\.htaccess$"
+    title: 'Apache httpd2',
+    nanorc: `syntax "apache" "(apache|httpd)2?\\.conf" "\\.htaccess\$"
 
 # second column
 icolor cyan "^[[:space:]]*[^[:space:]]+[[:space:]]+[^[:space:]]+"
 # ...except for DirectoryIndex
-icolor brightwhite "^[[:space:]]*DirectoryIndex[[:space:]]+.*$"
+icolor brightwhite "^[[:space:]]*DirectoryIndex[[:space:]]+.*\$"
 
 # unknown directive
 icolor brightwhite,red "^[[:space:]]*[^[:space:]#]+"
@@ -14,14 +14,14 @@ icolor brightwhite,red "^[[:space:]]*[^[:space:]#]+"
 color magenta "="
 
 # keywords
+icolor brightred "[[:space:]][+-](ExecCGI|FollowSymLinks|Includes|IncludesNOEXEC|Indexes|MultiViews|SymLinksIfOwnerMatch|StdEnvVars|CompatEnvVars|ExportCertData|FakeBasicAuth|StrictRequire|OptRenegotiate)\\b"
+icolor brightred "[[:space:]](On|Off|Default|flock|fcntl|posixsem|pthread|sysvsem|All|None|AuthConfig|FileInfo|Indexes|Limit|Options)\\b"
+icolor brightred "[[:space:]](SDBM|GDBM|NDBM|DB|MD5|MD5-sess|auth|auth-int|never|searching|finding|always|Basic|Digest|Connection|Keep-Alive|Proxy-Authenticate|Proxy-Authorization|TE|Trailers|Transfer-Encoding|Upgrade|Netscape|Cookie|Cookie2|RFC2109|RFC2965|INode|MTime|Size|Prefer|Fallback|Double|error|nocontent|map|referer|formatted|semiformatted|unformatted|Ascending|Descending|Name|Date|Size|Description|SSL|TLS|STARTTLS|emerg|alert|crit|error|warn|notice|info|debug|LRU|GDSF|Any|NegotiatedOnly|Filters|Handlers|Deny,Allow|Allow,Deny|Mutual-failure|IsError|Ignore|StartBody|Full|Block|inherit|Registry|Registry-Strict|Script|EMail|Major|Minor|Min|Minimal|Prod|ProductOnly|OS|Full|optional|posixsem|sysvsem|sem|pthread|fcntl:|flock:|file:|yes|no|SSLv2|SSLv3|TLSv1|require|optional_no_ca|nonenotnull|dbm:|shm:|dc:|DNS)([[:space:]]|\$)"
+
 icolor brightcyan "^[[:space:]]*(AllowCONNECT|AssignUserID|AuthDigestNonceLifetime|AuthDigestShmemSize|CacheDefaultExpire|CacheDirLength|CacheDirLevels|CacheForceCompletion|CacheGcDaily|CacheGcInterval|CacheGcMemUsage|CacheLastModifiedFactor|CacheMaxExpire|CacheMaxFileSize|CacheMinFileSize|CacheSize|CacheTimeMargin|ChildPerUserID|CookieExpires|DavMinTimeout|DBDExptime|DBDKeep|DBDMax|DBDMin|DBDPersist|DeflateBufferSize|DeflateCompressionLevel|DeflateMemLevel|DeflateWindowSize|IdentityCheckTimeout|ISAPIReadAheadBuffer|KeepAliveTimeout|LDAPCacheEntries|LDAPCacheTTL|LDAPConnectionTimeout|LDAPOpCacheEntries|LDAPOpCacheTTL|LDAPSharedCacheSize|LimitInternalRecursion|LimitRequestBody|LimitRequestFields|LimitRequestFieldsize|LimitRequestLine|LimitXMLRequestBody|ListenBacklog|MaxClients|MaxKeepAliveRequests|MaxMemFree|MaxRequestsPerChild|MaxRequestsPerThread|MaxSpareServers|MaxSpareThreads|MaxThreads|MaxThreadsPerChild|MCacheMaxObjectCount|MCacheMaxObjectSize|MCacheMaxStreamingBuffer|MCacheMinObjectSize|MCacheSize|MinSpareServers|MinSpareThreads|NumServers|ProxyIOBufferSize|ProxyMaxForwards|ProxyReceiveBufferSize|ProxyTimeout|RewriteLogLevel|RLimitCPU|RLimitMEM|RLimitNPROC|ScriptLogBuffer|ScriptLogLength|SendBufferSize|ServerLimit|SSLProxyVerifyDepth|SSLSessionCacheTimeout|SSLVerifyDepth|StartServers|StartThreads|ThreadLimit|ThreadsPerChild|ThreadStackSize|TimeOut)\\b"
 icolor brightcyan "^[[:space:]]*(AcceptFilter|AccessFileName|Action|AddAlt|AddAltByEncoding|AddAltByType|AddCharset|AddDefaultCharset|AddDescription|AddEncoding|AddHandler|AddIcon|AddIconByEncoding|AddIconByType|AddInputFilter|AddLanguage|AddModuleInfo|AddOutputFilter|AddOutputFilterByType|AddType|Alias|AliasMatch|Allow|Anonymous|AuthBasicProvider|AuthDBMGroupFile|AuthDBMUserFile|AuthDigestDomain|AuthDigestFile|AuthDigestGroupFile|AuthDigestNonceFormat|AuthDigestProvider|AuthGroupFile|AuthLDAPBindDN|AuthLDAPBindPassword|AuthLDAPCharsetConfig|AuthLDAPGroupAttribute|AuthLDAPUrl|AuthName|AuthUserFile|BrowserMatch|BrowserMatchNoCase|BS2000Account|CacheDisable|CacheEnable|CacheFile|CacheGcClean|CacheGcUnused|CacheRoot|CGIMapExtension|CharsetDefault|CharsetOptions|CharsetSourceEnc|CookieDomain|CookieLog|CookieName|CoreDumpDirectory|CustomLog|Dav|DavGenericLockDB|DavLockDB|DBDParams|DBDPrepareSQL|DBDriver|DefaultIcon|DefaultLanguage|DefaultType|DeflateFilterNote|Deny|DirectoryIndex|DocumentRoot|ErrorDocument|ErrorLog|Example|ExpiresByType|ExpiresDefault|ExtFilterDefine|ExtFilterOptions|FilterChain|FilterDeclare|FilterProtocol|FilterProvider|FilterTrace|ForceType|ForensicLog|Group|Header|HeaderName|ImapBase|Include|IndexIgnore|IndexOptions|IndexStyleSheet|ISAPICacheFile|LanguagePriority|LDAPSharedCacheFile|LDAPTrustedCA|LDAPTrustedCAType|LDAPTrustedClientCert|LDAPTrustedGlobalCert|Listen|LoadFile|LoadModule|LockFile|LogFormat|MetaDir|MetaSuffix|MimeMagicFile|MMapFile|NameVirtualHost|NoProxy|NWSSLTrustedCerts|NWSSLUpgradeable|PassEnv|PidFile|ProxyBlock|ProxyDomain|ProxyPass|ProxyPassReverse|ProxyPassReverseCookieDomain|ProxyPassReverseCookiePath|ProxyRemote|ProxyRemoteMatch|ReadmeName|Redirect|RedirectMatch|RedirectPermanent|RedirectTemp|RemoveCharset|RemoveEncoding|RemoveHandler|RemoveInputFilter|RemoveLanguage|RemoveOutputFilter|RemoveType|RequestHeader|Require|RewriteBase|RewriteCond|RewriteLock|RewriteLog|RewriteMap|RewriteRule|ScoreBoardFile|Script|ScriptAlias|ScriptAliasMatch|ScriptLog|ScriptSock|SecureListen|ServerAdmin|ServerAlias|ServerName|ServerPath|ServerRoot|SetEnv|SetEnvIf|SetEnvIfNoCase|SetHandler|SetInputFilter|SetOutputFilter|SSIEndTag|SSIErrorMsg|SSIStartTag|SSITimeFormat|SSIUndefinedEcho|SSLCACertificateFile|SSLCACertificatePath|SSLCADNRequestFile|SSLCADNRequestPath|SSLCARevocationFile|SSLCARevocationPath|SSLCertificateChainFile|SSLCertificateFile|SSLCertificateKeyFile|SSLCipherSuite|SSLCryptoDevice|SSLHonorCiperOrder|SSLPassPhraseDialog|SSLProxyCACertificateFile|SSLProxyCACertificatePath|SSLProxyCARevocationFile|SSLProxyCARevocationPath|SSLProxyCipherSuite|SSLProxyMachineCertificateFile|SSLProxyMachineCertificatePath|SSLProxyProtocol|SSLRandomSeed|SSLRequire|SSLRequireSSL|SSLUserName|SuexecUserGroup|TransferLog|TypesConfig|UnsetEnv|User|UserDir|VirtualDocumentRoot|VirtualDocumentRootIP|VirtualScriptAlias|VirtualScriptAliasIP|Win32DisableAcceptEx)\\b"
 icolor brightcyan "^[[:space:]]*(AcceptMutex|AcceptPathInfo|AllowEncodedSlashes|AllowOverride|Anonymous_Authoritative|Anonymous_LogEmail|Anonymous_MustGiveEmail|Anonymous_NoUserID|Anonymous_VerifyEmail|AuthAuthoritative|AuthBasicAuthoritative|AuthBasicProvider|AuthDBMAuthoritative|AuthDBMType|AuthDefaultAuthoritative|AuthDigestAlgorithm|AuthDigestNcCheck|AuthDigestQop|AuthLDAPAuthoritative|AuthLDAPCompareDNOnServer|AuthLDAPDereferenceAliases|AuthLDAPEnabled|AuthLDAPFrontPageHack|AuthLDAPGroupAttributeIsDN|AuthLDAPRemoteUserIsDN|AuthType|AuthzDBMAuthoritative|AuthzDBMType|AuthzDefaultAuthoritative|AuthzGroupFileAuthoritative|AuthzLDAPAuthoritative|AuthzOwnerAuthoritative|AuthzUserAuthoritative|BufferedLogs|CacheExpiryCheck|CacheIgnoreCacheControl|CacheIgnoreHeaders|CacheIgnoreNoLastMod|CacheNegotiatedDocs|CacheStoreNoStore|CacheStorePrivate|CheckSpelling|ContentDigest|CookieStyle|CookieTracking|CoreDumpDirectory|CustomLog|DavDepthInfinity|DirectorySlash|DumpIOInput|DumpIOOutput|EnableExceptionHook|EnableMMAP|EnableSendfile|ExpiresActive|ExtendedStatus|FileETag|ForceLanguagePriority|HostnameLookups|IdentityCheck|ImapDefault|ImapMenu|IndexOrderDefault|ISAPIAppendLogToErrors|ISAPIAppendLogToQuery|ISAPIFakeAsync|ISAPILogNotSupported|KeepAlive|LDAPTrustedMode|LDAPVerifyServerCert|LogLevel|MCacheRemovalAlgorithm|MetaFiles|ModMimeUsePathInfo|MultiviewsMatch|Options|Order|ProtocolEcho|ProxyBadHeader|ProxyErrorOverride|ProxyPreserveHost|ProxyRequests|ProxyVia|RewriteEngine|RewriteOptions|Satisfy|ScriptInterpreterSource|ServerSignature|ServerTokens|SSLEngine|SSLMutex|SSLOptions|SSLProtocol|SSLProxyEngine|SSLProxyVerify|SSLSessionCache|SSLVerifyClient|UseCanonicalName|XBitHack)\\b"
 icolor brightcyan "^[[:space:]]*(AllowCONNECT|AssignUserID|AuthDigestNonceLifetime|AuthDigestShmemSize|CacheDefaultExpire|CacheDirLength|CacheDirLevels|CacheForceCompletion|CacheGcDaily|CacheGcInterval|CacheGcMemUsage|CacheLastModifiedFactor|CacheMaxExpire|CacheMaxFileSize|CacheMinFileSize|CacheSize|CacheTimeMargin|ChildPerUserID|CookieExpires|DavMinTimeout|DBDExptime|DBDKeep|DBDMax|DBDMin|DBDPersist|DeflateBufferSize|DeflateCompressionLevel|DeflateMemLevel|DeflateWindowSize|IdentityCheckTimeout|ISAPIReadAheadBuffer|KeepAliveTimeout|LDAPCacheEntries|LDAPCacheTTL|LDAPConnectionTimeout|LDAPOpCacheEntries|LDAPOpCacheTTL)\\b"
-
-icolor brightred "[[:space:]]+[+-](ExecCGI|FollowSymLinks|Includes|IncludesNOEXEC|Indexes|MultiViews|SymLinksIfOwnerMatch|StdEnvVars|CompatEnvVars|ExportCertData|FakeBasicAuth|StrictRequire|OptRenegotiate)\\b"
-icolor brightred "[[:space:]]+(On|Off|Default|flock|fcntl|posixsem|pthread|sysvsem|All|None|AuthConfig|FileInfo|Indexes|Limit|Options)\\b"
-icolor brightred "[[:space:]]+(SDBM|GDBM|NDBM|DB|MD5|MD5-sess|auth|auth-int|never|searching|finding|always|Basic|Digest|Connection|Keep-Alive|Proxy-Authenticate|Proxy-Authorization|TE|Trailers|Transfer-Encoding|Upgrade|Netscape|Cookie|Cookie2|RFC2109|RFC2965|INode|MTime|Size|Prefer|Fallback|Double|error|nocontent|map|referer|formatted|semiformatted|unformatted|Ascending|Descending|Name|Date|Size|Description|SSL|TLS|STARTTLS|emerg|alert|crit|error|warn|notice|info|debug|LRU|GDSF|Any|NegotiatedOnly|Filters|Handlers|Deny,Allow|Allow,Deny|Mutual-failure|IsError|Ignore|StartBody|Full|Block|inherit|Registry|Registry-Strict|Script|EMail|Major|Minor|Min|Minimal|Prod|ProductOnly|OS|Full|optional|posixsem|sysvsem|sem|pthread|fcntl:|flock:|file:|yes|no|SSLv2|SSLv3|TLSv1|require|optional_no_ca|nonenotnull|dbm:|shm:|dc:|DNS)([[:space:]]|$)"
 
 # XML-style
 color green "[[:space:]]*<[^<>]+>"
@@ -34,23 +34,23 @@ color brightyellow ""(\\.|[^\\"])*""
 color brightgreen "'(\\.|[^\\'])*'"
 
 # [bracketed]
-color red "(\\[[^]]+]|"\\[[^]]+]")[[:space:]]*$"
+color red "(\\[[^]]+]|"\\[[^]]+]")[[:space:]]*\$"
 
 # Variables
-color brightgreen "\\$[0-9]" "%[1-9]"
+color brightgreen "\\\$[0-9]" "%[1-9]"
 color yellow "%\\{(HTTP_(ACCEPT|COOKIE|FORWARDED|HOST|PROXY_CONNECTION|REFERER|USER_AGENT)|REMOTE_(ADDR|HOST|IDENT|USER)|REQUEST_METHOD|SCRIPT_FILENAME|PATH_INFO|QUERY_STRING|AUTH_TYPE|DOCUMENT_ROOT|SERVER_(ADDR|ADMIN|NAME|PORT|PROTOCOL|SOFTWARE)|TIME(_(YEAR|MON|DAY|HOUR|MIN|SEC|WDAY))?|API_VERSION|THE_REQUEST|REQUEST_URI|REQUEST_FILENAME|IS_SUBREQ)\\}"
 
 # IP-Adresses
 color brightmagenta "\\<[[:digit:]]{1,3}(\\.[[:digit:]]{1,3}){3}"
 
 # comments
-color brightblack "(^|[[:space:]])(#|;).*$"
+color brightblack "(^|[[:space:]])(#|;).*\$"
 
 # trailing whitespace
-color ,blue "[[:space:]]+$"
+color ,blue "[[:space:]]+\$"
 
 # urls
-color blue "https?://([][!#$&-;=?-_a-z~]|%[0-9a-fA-F]{2})+"
+color blue "https?://([][!#\$&-;=?-_a-z~]|%[0-9a-fA-F]{2})+"
 `,
     code: `# ----------------------------------------------------------------------
 # Apache configuration file
@@ -136,32 +136,32 @@ AddDefaultCharset utf-8
 </IfModule>
 
 # No caching for dynamic files
-<filesMatch "\\.(php|cgi|pl|htm)$">
+<filesMatch "\\.(php|cgi|pl|htm)\$">
 	ExpiresDefault A0
 	Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 	Header set Pragma "no-cache"
 </filesMatch>
 
 # 1 MIN
-<filesMatch "\\.(html)$">
+<filesMatch "\\.(html)\$">
 	ExpiresDefault A60
 	Header set Cache-Control "max-age=60, must-revalidate"
 </filesMatch>
 
 # 2 DAYS
-<filesMatch "\\.(xml|txt)$">
+<filesMatch "\\.(xml|txt)\$">
 	ExpiresDefault A172800
 	Header set Cache-Control "max-age=172800, must-revalidate"
 </filesMatch>
 
 # 1 WEEK
-<filesMatch "\\.(jpg|jpeg|png|gif|swf|js|css)$">
+<filesMatch "\\.(jpg|jpeg|png|gif|swf|js|css)\$">
 	ExpiresDefault A604800
 	Header set Cache-Control "max-age=604800, must-revalidate"
 </filesMatch>
 
 # 1 MONTH
-<filesMatch "\\.(ico|pdf|flv)$">
+<filesMatch "\\.(ico|pdf|flv)\$">
 	ExpiresDefault A2419200
 	Header set Cache-Control "max-age=2419200, must-revalidate"
 </filesMatch>
@@ -236,7 +236,7 @@ AddDefaultCharset utf-8
 	# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
 	<IfModule mod_setenvif.c>
 		<IfModule mod_headers.c>
-			SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\\s*,?\\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+			SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})\$ ^((gzip|deflate)\\s*,?\\s*)+|[X~-]{4,13}\$ HAVE_Accept-Encoding
 			RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
 		</IfModule>
 	</IfModule>
@@ -244,22 +244,22 @@ AddDefaultCharset utf-8
 	<IfModule filter_module>
 		# HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
 		FilterDeclare   COMPRESS
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
-		FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$text/html
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$text/css
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$text/plain
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$text/xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$text/x-component
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/javascript
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/json
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/xhtml+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/rss+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/atom+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/vnd.ms-fontobject
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$image/svg+xml
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$image/x-icon
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$application/x-font-ttf
+		FilterProvider  COMPRESS  DEFLATE resp=Content-Type \$font/opentype
 		FilterChain     COMPRESS
 		FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
 	</IfModule>
@@ -318,7 +318,7 @@ ServerTokens Prod
 # This files may be left by some text/html editors and pose a great security danger
 # ----------------------------------------------------------------------
 
-<FilesMatch "(\\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+<FilesMatch "(\\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)\$">
 	Order allow,deny
 	Deny from all
 	Satisfy All
@@ -338,7 +338,7 @@ ServerTokens Prod
 # ----------------------------------------------------------------------
 
 <IfModule mod_headers.c>
-	<FilesMatch "\\.(ttf|ttc|otf|eot|woff|font.css)$">
+	<FilesMatch "\\.(ttf|ttc|otf|eot|woff|font.css)\$">
 		Header set Access-Control-Allow-Origin "*"
 	</FilesMatch>
 </IfModule>
@@ -350,7 +350,7 @@ ServerTokens Prod
 <IfModule mod_headers.c>
 	Header set X-UA-Compatible "IE=Edge,chrome=1"
 		# mod_headers can't match by content-type, but we don't want to this header on everything
-		<FilesMatch "\\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+		<FilesMatch "\\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)\$" >
 			Header unset X-UA-Compatible
 		</FilesMatch>
 </IfModule>
@@ -360,7 +360,7 @@ ServerTokens Prod
 # https://developers.google.com/speed/docs/best-practices/caching#LeverageProxyCaching
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
-  <FilesMatch "\\.(js|css|xml|gz)$">
+  <FilesMatch "\\.(js|css|xml|gz)\$">
     Header append Vary: Accept-Encoding
   </FilesMatch>
 </IfModule>
@@ -376,7 +376,7 @@ ServerTokens Prod
 
 <IfModule mod_setenvif.c>
 	<IfModule mod_headers.c>
-		<FilesMatch "\\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+		<FilesMatch "\\.(gif|png|jpe?g|svg|svgz|ico|webp)\$">
 			SetEnvIf Origin ":" IS_CORS
 			Header set Access-Control-Allow-Origin "*" env=IS_CORS
 		</FilesMatch>

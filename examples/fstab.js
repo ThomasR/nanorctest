@@ -1,6 +1,6 @@
 examples.push({
     title: 'fstab',
-    nanorc: `syntax "fstab" "(/|^)((fs|m)tab|mounts)$"
+    nanorc: `syntax "fstab" "(/|^)((fs|m)tab|mounts)\$"
 
 # type
 color brightred "^[[:space:]]*[[:graph:]]+[[:space:]]+[[:graph:]]+[[:space:]]+[[:graph:]]+"
@@ -12,16 +12,16 @@ color brightcyan "^[[:space:]]*[[:graph:]]+[[:space:]]+[[:graph:]]+"
 color brightyellow "^[[:space:]]*[[:graph:]]+"
 
 # options
-color brightgreen "[[:graph:]]+[[:space:]]*[0-9][[:space:]]+[0-9][[:space:]]*($|[[:space:]]#)"
+color brightgreen "[[:graph:]]+[[:space:]]*[0-9][[:space:]]+[0-9][[:space:]]*(\$|[[:space:]]#)"
 
 # dump
-color brightblue "[0-9][[:space:]]+[0-9][[:space:]]*($|[[:space:]]#)"
+color brightblue "[0-9][[:space:]]+[0-9][[:space:]]*(\$|[[:space:]]#)"
 
 # pass
-color brightmagenta "[0-9][[:space:]]*($|[[:space:]]#)"
+color brightmagenta "[0-9][[:space:]]*(\$|[[:space:]]#)"
 
 # Comments
-color brightblack "([[:space:]]+|^)#.*$"
+color brightblack "([[:space:]]+|^)#.*\$"
 
 # Legend
 color red "<type>"

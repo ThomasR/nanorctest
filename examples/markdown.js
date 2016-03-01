@@ -1,6 +1,6 @@
 examples.push({
     title: 'Markdown',
-    nanorc: `syntax "md" "\\.(md|mkd|mkdn|markdown)$"
+    nanorc: `syntax "md" "\\.(md|mkd|mkdn|markdown)\$"
 
 # lists
 color red "^ *([-*+]|[1-9][0-9]*\\.)"
@@ -18,7 +18,7 @@ color brightblack "(^|[[:space:]])~~[^ ][^~]*~~"
 
 # headlines
 color brightyellow "^#{1,6} .*"
-color brightyellow "^(---+|===+|___+|\\*\\*\\*+)\\s*$"
+color brightyellow "^(---+|===+|___+|\\*\\*\\*+)\\s*\$"
 
 # HTML elements
 color brightgreen start="</?(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|bgsound|big|blink|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|command|content|data|datalist|dd|del|details|dfn|dialog|dir|div|dl|dt|element|em|embed|fieldset|figcaption|figure|font|footer|form|frame|frameset|head|header|hgroup|hr|html|i|iframe|image|img|input|ins|isindex|kbd|keygen|label|legend|li|link|listing|main|map|mark|marquee|menu|menuitem|meta|meter|multicol|nav|nobr|noembed|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|plaintext|pre|progress|q|rp|rt|rtc|ruby|s|samp|script|section|select|shadow|small|source|spacer|span|strike|strong|style|sub|summary|sup|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp)[[:>:]]" end=">"
@@ -41,8 +41,8 @@ color green "^ {4}[^-*+].*" "\`[^\`]+\`"
 # where start==end with more than one matching block.
 # so start="\`\`\`" end="\`\`\`" doesn’t work,
 # and we use some stopgap here
-color ,green "^\`\`\`$"
-color green start="^\`\`\`[^\`]" end="^\`\`\`$"`,
+color ,green "^\`\`\`\$"
+color green start="^\`\`\`[^\`]" end="^\`\`\`\$"`,
     code: `# H
 ## H2
 ### H3
@@ -141,9 +141,9 @@ Colons can be used to align columns.
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| col 3 is      | right-aligned | \$1600 |
+| col 2 is      | centered      |   \$12 |
+| zebra stripes | are neat      |    \$1 |
 
 The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
 
