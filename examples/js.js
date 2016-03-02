@@ -15,8 +15,8 @@ color brightmagenta "\\bfunction\\b"
 # brackets
 color brightcyan "[]{}()[]"
 
-# Semicolon
-color brightblue ";"
+# Semicolon, Comma
+color brightblue "[;,]"
 
 # Operators
 color brightred "[-+*/%]"
