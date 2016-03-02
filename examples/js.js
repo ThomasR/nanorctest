@@ -2,15 +2,11 @@ examples.push({
     title: 'JS',
     nanorc: `syntax "js" "\\.js\$"
 
-# numbers
-icolor brightgreen "\\.?\\<[0-9]+" "\\<[0-9]+\\.([0-9]+)?"
-icolor brightgreen "\\<0x[0-9a-f]"
-
 # keywords
+color brightmagenta "\\bfunction\\b"
 color brightyellow "\\b(if|else|for|in|while|do|continue|break|with|try|catch|finally|switch|case|new|var|return|delete|true|false|void|throw|typeof|const|default|null)\\b"
 color brightyellow "\\b(Anchor|Applet|Area|Array|Boolean|Button|Checkbox|Date|document|window|Image|FileUpload|Form|Frame|Function|Hidden|Link|MimeType|Math|Max|Min|Layer|navigator|Object|Password|Plugin|Radio|RegExp|Reset|Screen|Select|String|Text|Textarea|this|Window)\\b"
 color brightyellow "\\b(abs|acos|asin|atan|atan2|ceil|cos|ctg|E|exp|floor|LN2|LN10|log|LOG2E|LOG10E|PI|pow|round|sin|sqrt|SQRT1_2|SQRT2|tan)\\b"
-color brightmagenta "\\bfunction\\b"
 
 # brackets
 color brightcyan "[]{}()[]"
@@ -19,15 +15,14 @@ color brightcyan "[]{}()[]"
 color brightblue "[;,]"
 
 # Operators
-color brightred "[-+*/%]"
-color brightred "[-+*/&|]?="
-color brightred "(\\+\\+|--)"
+color brightred "[-+*/%]" "[-+*/&|]?=" "(\\+\\+|--)"
 color brightmagenta "\\."
 
 # comparison / logical
-color brightred "(!|&&|\\|\\|)"
-color brightred "[<>]=?" "[=!]==?"
-color brightred "[:?]"
+color brightred "(!|&&|\\|\\|)" "[<>]=?" "[=!]==?" "[:?]"
+
+# numbers
+icolor brightgreen "(\\B-)?(\\<(0|[1-9]\\d*)|\\B)(\\.\\d+)?(e[-+]?\\d+)?\\>" "\\<0x[0-9a-f]+\\>"
 
 # Strings
 color green ""(\\\\.|[^\\"])*"" "'(\\\\.|[^\\'])*'"
@@ -36,8 +31,7 @@ color green ""(\\\\.|[^\\"])*"" "'(\\\\.|[^\\'])*'"
 color brightgreen "\\\\."
 
 # Comments
-color brightblack "(^|[[:space:]])//.*\$"
-color brightblack start="/\\*" end="\\*/"
+color brightblack "(^|[[:space:]])//.*\$" start="/\\*" end="\\*/"
 
 # FIXME, TODO, etc.
 color brightyellow,red "\\<(BUG|FIXME|IMPORTANT|WARNING):?"
