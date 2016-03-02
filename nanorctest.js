@@ -18,13 +18,14 @@ let convertRegExp = str => {
     }
     // character classes as per http://www.regular-expressions.info/posixbrackets.html#class
     let replaced = str.replace(/\[:space:]/g, '\\s').replace(/\[:word:]/g, '\\w')
-        .replace(/\[\[:[><]:\]\]|\\[><]/g, '\\b') // not accurate, but the best we can do
         .replace(/\[:alpha:]/g, 'a-zA-Z').replace(/\[:alnum:]/g, 'a-zA-Z0-9')
         .replace(/\[:lower:]/g, 'a-z').replace(/\[:upper:]/g, 'A-Z')
         .replace(/\[:ascii:]/g, '\\x00-\\x7F').replace(/\[:graph:]/g, '\\x21-\\x7E')
         .replace(/\[:blank:]/g, '\\h').replace(/\[:digit:]/g, '\\d')
         .replace(/\[:cntrl:]/g, '\\x00-\\x1F\\x7F').replace(/\[:print:]/g, '\\x20-\\x7E')
-        .replace(/\[:xdigit:]/g, 'a-fA-F0-9').replace(/\[:punct:]/g, '\'!"#$%&()*+,\\-./:;<=>?@[\\]^_`{|}~\\\\');
+        .replace(/\[:xdigit:]/g, 'a-fA-F0-9').replace(/\[:punct:]/g, '\'!"#$%&()*+,\\-./:;<=>?@[\\]^_`{|}~\\\\')
+        // word boundaries
+        .replace(/\[\[:>:]]|\\>/g, '\\b(?=\\W|$)').replace(/\[\[:<:]]|\\</g, '\\b(?=\\w)');
     // Allow unescaped ] in character class like []…] or [^]…].
     // This is a bit tricky for things like [][], which must be written as [\][] in JS
     let parts = replaced.split(/(\[\^?\].*?\])/g);
