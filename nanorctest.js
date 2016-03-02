@@ -17,7 +17,7 @@ let convertRegExp = str => {
         throw new Error('Empty regular expression');
     }
     // character classes as per http://www.regular-expressions.info/posixbrackets.html#class
-    let replaeced = str.replace(/\[:space:]/g, '\\s').replace(/\[:word:]/g, '\\w')
+    let replaced = str.replace(/\[:space:]/g, '\\s').replace(/\[:word:]/g, '\\w')
         .replace(/\[\[:[><]:\]\]|\\[><]/g, '\\b') // not accurate, but the best we can do
         .replace(/\[:alpha:]/g, 'a-zA-Z').replace(/\[:alnum:]/g, 'a-zA-Z0-9')
         .replace(/\[:lower:]/g, 'a-z').replace(/\[:upper:]/g, 'A-Z')
@@ -27,7 +27,7 @@ let convertRegExp = str => {
         .replace(/\[:xdigit:]/g, 'a-fA-F0-9').replace(/\[:punct:]/g, '\'!"#$%&()*+,\\-./:;<=>?@[\\]^_`{|}~\\\\');
     // Allow unescaped ] in character class like []…] or [^]…].
     // This is a bit tricky for things like [][], which must be written as [\][] in JS
-    let parts = replaeced.split(/(\[\^?\].*?\])/g);
+    let parts = replaced.split(/(\[\^?\].*?\])/g);
     return parts.reduce((result, part, i) => {
         if (i % 2) {
             part = part.replace(/^(\[\^?)]/, '$1\\]')
@@ -82,27 +82,31 @@ let getHighlighters = nanorc => {
             console.warn('incomplete matching definition: ', line);
             return;
         }
+        line.split(/\s*(start=".*?" end=".*?")\s*/g).filter(part => part && part.length).forEach(part => {
+        part = part.trim();
         try {
-            if (/^start=/.test(line)) {
+            if (/^start=/.test(part)) {
                 result.push({
                     fg,
                     bg,
                     global: true,
-                    matcher: getGlobalMatcher(line, insensitive)
+                    matcher: getGlobalMatcher(part, insensitive)
                 });
             } else {
-                let res = line.replace(/^"|"$/g, '').split(/"\s+"/);
-                res.forEach(re => result.push({
+                part.replace(/^"|"$/g, '').split(/"\s+"/).forEach(re => {
+                result.push({
                     fg,
                     bg,
                     global: false,
                     matcher: getLineMatcher(re, insensitive)
-                }));
+                });
+                });
             }
         } catch (e) {
             console.error('Could not convert matcher ', line, ': ', e.message);
             console.log(e.stack);
         }
+        });
     });
     return result;
 };
