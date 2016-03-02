@@ -83,29 +83,29 @@ let getHighlighters = nanorc => {
             return;
         }
         line.split(/\s*(start=".*?" end=".*?")\s*/g).filter(part => part && part.length).forEach(part => {
-        part = part.trim();
-        try {
-            if (/^start=/.test(part)) {
-                result.push({
-                    fg,
-                    bg,
-                    global: true,
-                    matcher: getGlobalMatcher(part, insensitive)
-                });
-            } else {
-                part.replace(/^"|"$/g, '').split(/"\s+"/).forEach(re => {
-                result.push({
-                    fg,
-                    bg,
-                    global: false,
-                    matcher: getLineMatcher(re, insensitive)
-                });
-                });
+            part = part.trim();
+            try {
+                if (/^start=/.test(part)) {
+                    result.push({
+                        fg,
+                        bg,
+                        global: true,
+                        matcher: getGlobalMatcher(part, insensitive)
+                    });
+                } else {
+                    part.replace(/^"|"$/g, '').split(/"\s+"/).forEach(re => {
+                        result.push({
+                            fg,
+                            bg,
+                            global: false,
+                            matcher: getLineMatcher(re, insensitive)
+                        });
+                    });
+                }
+            } catch (e) {
+                console.error('Could not convert matcher ', line, ': ', e.message);
+                console.log(e.stack);
             }
-        } catch (e) {
-            console.error('Could not convert matcher ', line, ': ', e.message);
-            console.log(e.stack);
-        }
         });
     });
     return result;
@@ -159,7 +159,7 @@ let analyzeGlobal = (code, highlighter, metas) => {
                 //console.log('shifting!', starts[0]);
                 starts.shift();
             }
-        } while(end.from <= start.to && ends.length);
+        } while (end.from <= start.to && ends.length);
         //console.log('good!');
         intervals.push([start, end]);
     }
