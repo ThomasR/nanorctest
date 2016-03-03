@@ -3,7 +3,19 @@ nanorctest
 
 Test your nanorc files online, without starting nano over and over again.
 
-http://thomasr.github.io/nanorctest/
+###  http://thomasr.github.io/nanorctest/
+
+## What is this?
+
+This is a tool to test [nano](http://www.nano-editor.org/) syntax highlighting definitions online.
+
+If you've ever written one, you know that there's a lot of trial and error involved. It’s a real pain to restart nano over and over just to see your changes. So try your changes in the browser first, and see the effect instantly!
+
+Open your browser's JS console to see warnings and errors.
+ 
+## Where can I get more nano syntax definitions?
+
+[Here](https://github.com/scopatz/nanorc).
 
 ## License
 
