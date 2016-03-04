@@ -44,10 +44,6 @@ textarea,
     margin-top: 0;
 }
 
-#result {
-    background: black;
-    color: #afb5ba;
-}
 #result a {
     color: inherit !important;
     text-decoration: none;
@@ -61,18 +57,19 @@ textarea,
 #result .brightblack {
     color: #585f66;
 }
+#result,
 #result .white,
 #result .default {
-    color: #afb5ba;
+    color: #cfd8dc;
 }
 #result .brightwhite {
-    color: #ffffff;
+    color: #fbfdff;
 }
 #result .red {
     color: #d6000b;
 }
 #result .brightred {
-    color: #ff5562;
+    color: #ff4757;
 }
 #result .yellow {
     color: #bf9e00;
@@ -81,22 +78,22 @@ textarea,
     color: #fff150;
 }
 #result .green {
-    color: #509600;
+    color: #538700;
 }
 #result .brightgreen {
     color: #8aff15;
 }
 #result .cyan {
-    color: #00a698;
+    color: #00b89f;
 }
 #result .brightcyan {
     color: #33fffe;
 }
 #result .blue {
-    color: #166dff;
+    color: #237ffe;
 }
 #result .brightblue {
-    color: #55aeff;
+    color: #6babff;
 }
 #result .magenta {
     color: #bf1b99;
@@ -105,52 +102,29 @@ textarea,
     color: #ff4ac8;
 }
 
+#result,
 #result .bg-black,
 #result .bg-default {
     background-color: #000000;
 }
-#result .brightbgblack {
-    background-color: #585f66;
-}
 #result .bg-white {
-    background-color: #afb5ba;
-}
-#result .brightbgwhite {
-    background-color: #ffffff;
+    background-color: #cfd8dc;
 }
 #result .bg-red {
     background-color: #d6000b;
 }
-#result .brightbgred {
-    background-color: #ff5562;
-}
 #result .bg-yellow {
     background-color: #bf9e00;
 }
-#result .brightbgyellow {
-    background-color: #fff150;
-}
 #result .bg-green {
-    background-color: #399e00;
-}
-#result .brightbggreen {
-    background-color: #8aff15;
+    background-color: #538e00;
 }
 #result .bg-cyan {
-    background-color: #00a698;
-}
-#result .brightbgcyan {
-    background-color: #4affff;
+    background-color: #00ccba;
 }
 #result .bg-blue {
-    background-color: #166dff;
-}
-#result .brightbgblue {
-    background-color: #55aeff;
+    background-color: #237ffe;
 }
 #result .bg-magenta {
-    background-color: #c71da0;
-}
-#result .brightbgmagenta {
-    background-color: #ff4ac8;
+    background-color: #bf1b99;
 }
