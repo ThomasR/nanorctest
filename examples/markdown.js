@@ -36,12 +36,8 @@ color magenta "!\\[[^][]*\\](\\([^)]+\\)|\\[[^]]+\\])"
 color green "^ {4}[^-*+].*" "\`[^\`]+\`"
 
 # code blocks
-# unfortunately, nano is buggy and can’t handle the case
-# where start==end with more than one matching block.
-# so start="\`\`\`" end="\`\`\`" doesn’t work,
-# and we use some stopgap here
-color ,green "^\`\`\`\$"
-color green start="^\`\`\`[^\`]" end="^\`\`\`\$"`,
+# (buggy in nano < 2.4)
+color green start="^\`\`\`" end="^\`\`\`[[:space:]]*\$"`,
     code: `# H
 ## H2
 ### H3

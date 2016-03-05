@@ -24,8 +24,8 @@ icolor brightyellow,blue "<pre[ >]" "</pre>"
 color green ""[^"]*""
 
 # Doctype
-color brightcyan start="<!DOCTYPE" end=">"
-color yellow "<!DOCTYPE[^"]+("|\$)"
+icolor brightcyan start="<!DOCTYPE" end=">"
+icolor yellow "<!DOCTYPE[^"]+("|\$)"
 
 # Quotes
 color cyan "["]"
