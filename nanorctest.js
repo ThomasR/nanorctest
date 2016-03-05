@@ -266,7 +266,12 @@ let colorizeHTML = function (line, meta) {
         }
     }
     spans.push(span);
-    return spans.filter(s => s.text.length).map(s => `<span class="${s.fg} bg-${s.bg}">${htmlEscape(s.text)}</span>`).join('');
+    return spans.filter(s => s.text.length).map(s => {
+        if (s.fg == 'default' && s.bg == 'default') {
+            return htmlEscape(s.text);
+        }
+        return `<span class="${s.fg} bg-${s.bg}">${htmlEscape(s.text)}</span>`;
+    }).join('');
 };
 
 /**
