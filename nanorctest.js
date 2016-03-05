@@ -83,7 +83,7 @@ let getHighlighters = nanorc => {
             console.warn('incomplete matching definition: ', line);
             return;
         }
-        line.split(/\s*(start=".*?" end=".*?")\s*/g).filter(part => part && part.length).forEach(part => {
+        line.split(/\s*(start=".*?" end=".*?")(?=start|\s|$)\s*/g).filter(part => part && part.length).forEach(part => {
             part = part.trim();
             try {
                 if (/^start=/.test(part)) {
