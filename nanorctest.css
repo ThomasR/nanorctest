@@ -128,3 +128,36 @@ textarea,
 #result .bg-magenta {
     background-color: #bf1b99;
 }
+
+.toast {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    height: 2em;
+    line-height: 2em;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 0 1em;
+    font-weight: bold;
+    font-size: 12px;
+}
+.toast.info {
+    background: hsl(200, 100%, 95%);
+    color: hsl(200, 40%, 50%);
+    border-color: hsl(200, 40%, 70%);
+    z-index: 0;
+}
+.toast.warn {
+    background: hsl(60, 100%, 95%);
+    color: hsl(60, 50%, 30%);
+    border-color: hsl(60, 50%, 60%);
+    z-index: 1;
+}
+.toast.error {
+    background: hsl(340, 100%, 95%);
+    color: hsl(340, 70%, 50%);
+    border-color: hsl(340, 70%, 70%);
+    z-index: 2;
+}

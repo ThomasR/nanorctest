@@ -27,27 +27,35 @@ let getPainters = (() => {
                 lines.other.push(line)
             }
         });
-        lines.other.forEach(l => console.warn('ignoring line: ', l));
+        lines.other.forEach(l => {
+            if ('color'.indexOf(l) && 'icolor'.indexOf(l)) {
+                Logger.info('ignoring line:', l);
+            } else {
+                Logger.warn('incomplete line:', l);
+            }
+        });
 
         // process relevant lines
         lines.color.forEach(line => {
             // determine brushes
             let insensitive = line[0] === 'i';
-            line = line.replace(/i?color\s*/, '');
-            if (!colorRE.test(line)) {
-                console.warn('incomplete line: ', line);
+            let trimmedLine = line.replace(/i?color\s*/, '');
+            if (!colorRE.test(trimmedLine)) {
+                Logger.warn('incomplete line:', line);
                 return;
             }
-            let colors = line.match(colorRE)[0].split(',');
+            let colors = trimmedLine.match(colorRE)[0].split(',');
             let fg = colors[0];
             let bg = colors[1];
-            line = line.replace(colorRE, '').trim();
-            if (!/^".*"$|^start=".+"\s+end=".+"/.test(line)) {
-                console.warn('incomplete matching definition: ', line);
+            trimmedLine = trimmedLine.replace(colorRE, '').trim();
+            if (!/^".*"$|^start=".+"\s+end=".+"/.test(trimmedLine)) {
+                let logLine = trimmedLine.length ? trimmedLine : line;
+                logLine = logLine.substr(0, 100) + (logLine.length > 100 ? '\u2026' : '');
+                Logger.warn('incomplete matching definition: ', logLine);
                 return;
             }
             // create painters
-            line.split(/\s*(start=".*?" end=".*?")(?=start|\s|$)\s*/g).filter(part => part && part.length).forEach(part => {
+            trimmedLine.split(/\s*(start=".*?" end=".*?")(?=start|\s|$)\s*/g).filter(part => part && part.length).forEach(part => {
                 part = part.trim();
                 try {
                     if (/^start=/.test(part)) {
@@ -58,8 +66,11 @@ let getPainters = (() => {
                         });
                     }
                 } catch (e) {
-                    console.error('Could not convert matcher ', line, ': ', e.message);
-                    console.log(e.stack);
+                    let logLine = trimmedLine;
+                    if (logLine.length > 70) {
+                        logLine = trimmedLine.substr(0, 35) + '\u2009\u2026\u2009' + trimmedLine.substr(-35);
+                    }
+                    Logger.error('Could not convert matcher ', logLine, ': ', e.message);
                 }
             });
         });
