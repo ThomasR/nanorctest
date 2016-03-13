@@ -1,7 +1,7 @@
 'use strict';
 
 let getPainters = (() => {
-    const colorRE = /^((bright)?(black|white|red|yellow|green|cyan|blue|magenta))?(,(black|white|red|yellow|green|cyan|blue|magenta))?/;
+    const colorRE = /^((bright)?(black|white|red|yellow|green|cyan|blue|magenta)\b(,(black|white|red|yellow|green|cyan|blue|magenta)\b)?|,(black|white|red|yellow|green|cyan|blue|magenta)\b)/;
 
     let cache;
     let lastNanorc;
