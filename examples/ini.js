@@ -27,8 +27,8 @@ color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){6}:([0-9a-fA-F]{1,4})?(\$|[^[
 color magenta "(^|[^[:alnum:]])([0-9a-fA-F]{1,4}:){7}(:|[0-9a-fA-F]{1,4}\\b)"
 
 # "Strings" and 'Strings'
-color brightgreen "'(\\\\.|[^\\'])*'"
-color green ""(\\\\.|[^\\"])*""
+color brightgreen "'(\\\\.|[^\\\\'])*'"
+color green ""(\\\\.|[^\\\\"])*""
 
 # Escaped characters
 # color brightgreen "\\\\."

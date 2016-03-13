@@ -3,7 +3,7 @@ examples.push({
     nanorc: `syntax "Autoconf" "\\.(a[ct]|m4)\$"
 
 # unknown macros, all-caps identifiers
-color yellow "\\<[[:upper:][:digit:]]+_[[:upper:][:digit:]_]+\\>"
+color yellow "\\<([[:upper:][:digit:]]+_|_+[[:upper:][:digit:]])[[:upper:][:digit:]_]+\\>"
 
 # M4 macros
 color brightyellow "\\<__(file|o?line)__\\>" "\\<AS_(BOURNE_COMPATIBLE|BOX|CASE|DIRNAME|ECHO|ECHO_N|ESCAPE|EXECUTABLE_P|EXIT|HELP_STRING|IF|INIT|INIT_GENERATED|LINENO_PREPARE|LITERAL_IF|LITERAL_WORD_IF|ME_PREPARE|MESSAGE_FD|MESSAGE_LOG_FD|MKDIR_P|ORIGINAL_STDIN_FD|SET_CATFILE|SET_STATUS|SHELL_SANITIZE|TMPDIR|TR_CPP|TR_SH|UNSET|VAR_APPEND|VAR_ARITH|VAR_COPY|VAR_IF|VAR_POPDEF|VAR_PUSHDEF|VAR_SET|VAR_SET_IF|VAR_TEST_SET|VERSION_COMPARE)\\>" "\\<m4_(append|append_uniq|append_uniq_w|apply|argn|assert|bmatch|bpatsubst|bpatsubsts|bregexp|builtin|car|case|cdr|changecom|changequote|chomp|chomp_all|cleardivert|cmp|combine|cond|copy|copy_force|count|curry|debugfile|debugmode|decr|default|default_nblank|default_nblank_quoted|default_quoted|define|define_default|defn|divert|divert_once|divert_pop|divert_push|divert_text|divnum|do|dquote|dquote_elt|dumpdef|dumpdefs|echo|errprint|errprintn|escape|esyscmd|esyscmd_s|eval|exit|expand|fatal|flatten|for|foreach|foreach_w|format|if|ifblank|ifdef|ifnblank|ifndef|ifset|ifval|ifvaln|ignore|include|incr|index|indir|init|join|joinall|len|list_cmp|location|make_list|maketemp|map|map_args|map_args_pair|map_args_sep|map_args_w|map_sep|mapall|mapall_sep|max|min|mkstemp|n|newline|normalize|pattern_allow|pattern_forbid|popdef|pushdef|quote|re_escape|rename|rename_force|reverse|set_add|set_add_all|set_contains|set_contents|set_delete|set_difference|set_dump|set_empty|set_foreach|set_intersection|set_list|set_listc|set_map|set_map_sep|set_remove|set_size|set_union|shift|shift2|shift3|shiftn|sign|sinclude|split|stack_foreach|stack_foreach_lifo|stack_foreach_sep|stack_foreach_sep_lifo|strip|substr|syscmd|sysval|text_box|text_wrap|tolower|toupper|traceoff|traceon|translit|undefine|undivert|unquote|version_compare|version_prereq|warn|wrap|wrap_lifo)\\>" "\\<PKG_(CHECK_EXISTS|CHECK_MODULES|CONFIG_PATH|ERRORS|PROG_PKG_CONFIG|SHORT_ERRORS_SUPPORTED|TEXT)\\>"
@@ -14,7 +14,7 @@ color brightyellow "\\<(_AM_DEPENDENCIES|m4_include)\\>" "\\<AC_(CANONICAL_BUILD
 # autotest macros
 color brightyellow "\\<AT_(ARG_OPTION|ARG_OPTION_ARG|BANNER|CAPTURE_FILE|CHECK|CHECK_EUNIT|CHECK_UNQUOTED|CLEANUP|COLOR_TESTS|COPYRIGHT|DATA|FAIL_IF|INIT|KEYWORDS|PACKAGE_BUGREPORT|PACKAGE_NAME|PACKAGE_STRING|PACKAGE_TARNAME|PACKAGE_URL|PACKAGE_VERSION|SETUP|SKIP_IF|TESTED|XFAIL_IF)\\>"
 
-# Version numbers
+# (Version) numbers
 color magenta "\\<[-_.[:digit:]]+\\>"
 
 # cache variables
@@ -28,14 +28,15 @@ color brightcyan "\\<(awk|basename|cat|cc|chgrp|chown|chmod|clear|cmp|cp(io)?|da
 color brightred "[][()<>{},;|&!=]"
 
 # "Strings"
-color green ""(\\\\.|[^\\"])*"" "'(\\\\.|[^\\'])*'"
+color green ""(\\\\.|[^\\\\"])*"" "'(\\\\.|[^\\\\'])*'"
 
 # command substitution
-color brightgreen start="\\\$\\(" end="\\)" "\`.*?\`"
+color brightgreen start="\\\$\\(" end="\\)" "\`[^\`]+\`"
 
 # variables
-icolor brightblue "\\\$[a-z0-9_]+" "^[[:space:]]*[a-z0-9_]+=" start="\\\$\\{" end="}"
-icolor brightmagenta "\\\$\\\$[a-z0-9_]+" start="\\\$\\\$\\{" end="}"
+icolor brightblue "\\\$[a-z0-9@_]+" "^[[:space:]]*[a-z0-9_]+=" start="\\\$\\{" end="}"
+icolor brightblue "@[^@]+@"
+icolor brightmagenta "\\\$\\\$[a-z0-9@_]+" start="\\\$\\\$\\{" end="}"
 # environment variables
 color blue "\\\$(BIN_SH|CC|CDPATH|CFLAGS|CLICOLOR_FORCE|CONFIG_COMMANDS|CONFIG_FILES|CONFIG_HEADERS|CONFIG_LINKS|CONFIG_SHELL|CONFIG_SITE|CONFIG_STATUS|CPP|CPPFLAGS|CXX|CXXCPP|CXXFLAGS|CYGWIN|DUALCASE|ENV|ERL|ERLC|ERLCFLAGS|F77|FC|FCFLAGS|FFLAGS|FPATH|GOFLAGS|GREP_OPTIONS|IFS|LANG|LANGUAGE|LC_ADDRESS|LC_ALL|LC_COLLATE|LC_CTYPE|LC_IDENTIFICATION|LC_MEASUREMENT|LC_MESSAGES|LC_MONETARY|LC_NAME|LC_NUMERIC|LC_PAPER|LC_TELEPHONE|LC_TIME|LDFLAGS|LIBS|LINENO|M4|MAIL|MAILPATH|NULLCMD|OBJC|OBJCFLAGS|OBJCPP|OBJCXX|OBJCXXCPP|OBJCXXFLAGS|PATH_SEPARATOR|POSIXLY_CORRECT|PS1|PS2|PS4|PWD|RANDOM|SHELL|SIMPLE_BACKUP_SUFFIX|TMPDIR|WARNINGS|XMKMF|YACC|YFLAGS|options|status)\\>"
 

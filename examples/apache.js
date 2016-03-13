@@ -30,7 +30,7 @@ color green "[[:space:]]*<[^<>]+>"
 color brightgreen "\\([^)]+\\)"
 
 # "Strings" and 'Strings'
-color brightyellow ""(\\.|[^\\"])*"" "'(\\.|[^\\'])*'"
+color brightyellow ""(\\.|[^\\\\"])*"" "'(\\.|[^\\\\'])*'"
 
 # [bracketed]
 color red "(\\[[^]]+]|"\\[[^]]+]")[[:space:]]*\$"

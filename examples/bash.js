@@ -27,10 +27,10 @@ icolor magenta "(^|\\;)[[:space:]]*(function[[:space:]]+)?[0-9A-Z_.]+[[:space:]]
 color brightcyan "(^|[^-[:alnum:]])(cat|cd|chgrp|chmod|chown|clear|cp(io)?|echo|env|export|[efr]?grep|install|kill(all)?|let|ln|ls|make|mkdir|mv|rm(dir)?|sed|set|tar|test|touch|umask|uname|unset|which)($|[^-[:alnum:]])"
 
 # "Strings"
-color green ""(\\.|[^\\"])*""
+color green ""(\\.|[^\\\\"])*""
 
 # command substitution
-color brightyellow "\`(\\.|[^\\\`])*\`" "\\$\\((\\.|[^\\)])*\\)"
+color brightyellow "\`(\\.|[^\\\\\`])*\`" "\\$\\((\\.|[^\\)])*\\)"
 
 # calculations $((x+y))
 icolor magenta start="\\$\\(\\(" end="\\)\\)"

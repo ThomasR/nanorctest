@@ -25,7 +25,7 @@ color brightred "(!|&&|\\|\\|)" "[<>]=?" "[=!]==?" "[:?]"
 icolor brightgreen "(\\B-)?(\\<(0|[1-9]\\d*)|\\B)(\\.\\d+)?(e[-+]?\\d+)?\\>" "\\<0x[0-9a-f]+\\>"
 
 # Strings
-color green ""(\\\\.|[^\\"])*"" "'(\\\\.|[^\\'])*'"
+color green ""(\\\\.|[^\\\\"])*"" "'(\\\\.|[^\\\\'])*'"
 
 # Escape-Sequences
 color brightgreen "\\\\."
