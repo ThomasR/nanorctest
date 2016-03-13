@@ -60,7 +60,7 @@ textarea,
 #result,
 #result .white,
 #result .default {
-    color: #cfd8dc;
+    color: #afb5ba;
 }
 #result .brightwhite {
     color: #fbfdff;
@@ -108,7 +108,7 @@ textarea,
     background-color: #000000;
 }
 #result .bg-white {
-    background-color: #cfd8dc;
+    background-color: #afb5ba;
 }
 #result .bg-red {
     background-color: #d6000b;
